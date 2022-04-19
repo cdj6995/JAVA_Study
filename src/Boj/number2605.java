@@ -8,6 +8,6 @@ public class number2605 {
 		Scanner sc = new Scanner(System.in);
 		int n = Integer.parseInt(sc.nextLine());
 		
-		
+		//dsdsa
 	}
 }

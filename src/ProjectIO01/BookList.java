@@ -78,12 +78,12 @@ public class BookList extends Books implements Book {
 	}
 	
 	// 도서 반납하기
-	@Override
-	public void reTurn() {
-		for(int i = 0; i < Libraryview.rentmemberlist.size(); i++) {
-			Libraryview.rentmemberlist.get(i).get(0);
-		}
-	}
+//	@Override
+//	public void reTurn() {
+//		for(int i = 0; i < Libraryview.rentmemberlist.size(); i++) {
+//			Libraryview.rentmemberlist.get(i).get(0);
+//		}
+//	}
 
 	// 새로운 도서 등록
 	@Override
