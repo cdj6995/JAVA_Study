@@ -6,7 +6,8 @@ public class number2231 {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-		int N = Integer.parseInt(sc.nextLine());
+		
+		int N = Integer.parseInt(sc.nextLine());		// 정수 입력
 		int result = 0;
 		
 		for(int n = 1; n < N; n++) {
@@ -14,7 +15,7 @@ public class number2231 {
 			String number = Integer.toString(n);
 			
 			for(int j = 0; j < number.length(); j++) {
-				num += (int)(number.charAt(j));
+				num += (number.charAt(j) - '0');
 			}
 			
 			if(num == N) {

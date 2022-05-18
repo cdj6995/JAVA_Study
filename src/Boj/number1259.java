@@ -16,21 +16,17 @@ public class number1259 {
 			if(pal.equals("0")) {
 				break;
 			}else {
-				if(pal.length() % 2 == 0) {
-					System.out.println("no");
+				int flag = 0;
+				for(int i= 0; i < (pal.length() / 2); i++) {
+					if(!palin[i].equals(palin[pal.length()-(i+1)])) {
+						flag = 1;
+						break;
+					}
+				}
+				if(flag == 0) {
+					System.out.println("yes");
 				}else {
-					int flag = 0;
-					for(int i= 0; i < (pal.length() / 2); i++) {
-						if(palin[i] != palin[pal.length()-(i+1)]) {
-							flag = 1;
-							break;
-						}
-					}
-					if(flag == 0) {
-						System.out.println("yes");
-					}else {
-						System.out.println("no");
-					}
+					System.out.println("no");
 				}
 			}
 		}
