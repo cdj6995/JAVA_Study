@@ -3,39 +3,39 @@ package kr.ac.kopo.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
-public class InsertMain03 {
+public class SelectMain01 {
 
 	public static void main(String[] args) {
 		
 		Connection conn = null;
-		PreparedStatement pstmt = null;		
+		PreparedStatement pstmt = null;
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-//			String url = "jdbc:oracle:thin:@192.168.119.119:1521:dink";
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String user = "scott";
 			String pw = "tiger";
 			
 			conn = DriverManager.getConnection(url, user, pw);
 			
-			String id = "kim";
-			String name = "김길동";
+			String sql = "select * from t_test";
+			pstmt = conn.prepareStatement(sql);
 			
-			String sql = "insert into t_test(id,name) values(?,?)";
-			
-			pstmt = conn.prepareStatement(sql);		// 알아서 문자열이면 작은 따옴표('')를 붙여준다		
-			pstmt.setString(1, id);	// (첫번째자리, 들어갈 문자열)
-			pstmt.setString(2, name);
-			
-			
-			int cnt = pstmt.executeUpdate();
-			System.out.println(cnt + "개 행이 삽입되었습니다.");
-			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				String id = rs.getString("id");
+				String name = rs.getString("name");
+//				String name = rs.getString(2);		// 위의 결과와 동일
+				
+				System.out.println("id : " + id + ", name : " + name);
+			}
+				
 		}catch(Exception e) {
 			e.printStackTrace();
+			
 		}finally {
 			if(pstmt != null) {
 				try {
@@ -54,3 +54,12 @@ public class InsertMain03 {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+

@@ -23,7 +23,8 @@ public class InsertMain02 {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			// 2단계 : DB 접속 및 Connection 객체 얻기
-			String url = "jdbc:oracle:thin:@192.168.119.119:1521:dink";
+//			String url = "jdbc:oracle:thin:@192.168.119.119:1521:dink";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			String user = "scott";
 			String pw = "tiger";
 			
